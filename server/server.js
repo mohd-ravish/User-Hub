@@ -48,12 +48,11 @@ app.put("/update", async(req, res)=>{
     res.send({success : true, message : "Data Updated Successfully", data : data})
 })
 
-//Delete
+// Delete
 app.delete("/delete/:id", async(req, res)=>{
     const id = req.params.id
-    console.log(id)
-    const data = await userModel.deleteOne({_id : id})
-    res.send({success : true, message : "Data Deleted Successfully", data : data})
+    userModel.deleteOne({_id : id})
+    // res.send({success : true, message : "Data Deleted Successfully", data : data})
 })
 
 

@@ -1,7 +1,7 @@
 import './App.css';
 import { MdClose } from "react-icons/md";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Axios from "axios";
 
 function App() {
   const [addSection, setAddSection] = useState(false)
@@ -28,21 +28,21 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post("http://localhost:4500/create", formData)
+    Axios.post("http://localhost:4500/create", formData)
     // fetchData();
     // console.log(data)
     setAddSection(false)
   }
 
   useEffect(() => {
-    axios.get("http://localhost:4500/").then((Response) => {
+    Axios.get("http://localhost:4500/").then((Response) => {
       setDataList(Response.data)
     });
   }, []);
 
   const handleDelete = async(id)=>{
-    const data = await axios.delete("http://localhost:4500/delete/"+id)
-    alert(data.data.message)
+   const data = await Axios.delete("http://localhost:4500/delete/"+id);
+    // alert(data)
     // fetchData();
   }
 
@@ -90,7 +90,7 @@ function App() {
                     <td>{dataItem.mobile}</td>
                     <td>
                       <button className='btn btn-edit'>Edit</button>
-                      <button className='btn btn-delete' onClick={()=>handleDelete(dataItem.id)}>Delete</button>
+                      <button className='btn btn-delete' onClick={()=>{handleDelete(dataItem.id)}}>Delete</button>
                     </td>
                   </tr>
                 )
