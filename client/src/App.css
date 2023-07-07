@@ -3,14 +3,9 @@
 }
 
 body {
-  background-color: #f5f6ff;
-}
-
-.container {
-  padding: 10px;
-  /* background-color: red; */
-  max-width: fit-content;
-  margin: 50px auto;
+  background-color: #ebebeb;
+  background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn {
@@ -21,14 +16,41 @@ body {
   cursor: pointer;
 }
 
-.btn-add {
-  background: #194064;
-  color: white;
+header {
+  border-radius: 5px;
+  background: rgba(79, 79, 79, 0.3);
+  padding : 1px 0px 1px 0px;
+}
+
+header img {
+  float: left;
+  width: 80px;
+  padding-top: 7px;
+}
+
+header h1 {
+  padding-left: 14px;
+  color: #fff;
+  font-family: 'Ysabeau SC', sans-serif;
+}
+
+header button {
+  margin-right: 18px;
+  float: right;
+  padding: 10px 16px 10px 16px;
+  border-radius: 5px;
+  border: 1px solid white;
+  font-weight: bold;
+}
+
+header button:hover{
+  cursor:pointer;
+  background-color: #fff;
 }
 
 .addContainer {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); */
   left: 0;
   right: 0;
   bottom: 0;
@@ -57,10 +79,11 @@ body {
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .addContainer form button {
-  background-color: royalblue;
+  background-color: rgb(116, 116, 116);
   color: white;
   font-weight: 500;
   margin-top: 20px;
@@ -80,19 +103,23 @@ body {
 }
 
 .tableContainer {
-  margin-top: 50px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  max-width: fit-content;
+  margin: 50px auto;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
 
 .tableContainer table thead tr {
-  background-color: #f0eaea;
+  background-color: #dcdcdc;
 }
 
 .tableContainer table thead tr th,
 .tableContainer table tbody tr td {
-  min-width: 200px;
-  padding: 7px;
+  border-radius: 5px;
+  min-width: fit-content;
+  padding: 8px;
   text-align: center;
 }
 
@@ -105,7 +132,8 @@ body {
 }
 
 .btn-edit,
-.btn-delete{
+.btn-delete {
+  background-color: #eae8e8;
   font-size: 16px;
   padding: 5px 10px;
   margin: 0px 10px;
