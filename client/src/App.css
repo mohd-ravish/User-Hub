@@ -19,13 +19,13 @@ body {
 header {
   border-radius: 5px;
   background: rgba(79, 79, 79, 0.3);
-  padding : 1px 0px 1px 0px;
+  padding : 0.1px 0px 0.1px 0px;
 }
 
 header img {
   float: left;
-  width: 80px;
-  padding-top: 7px;
+  width: 75px;
+  padding-top: 10px;
 }
 
 header h1 {
@@ -110,12 +110,6 @@ header button:hover{
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
-
-/* .no-data{
-  text-align: center;
-  justify-content: center;
-  padding: 0px 50px 0px 50px;
-} */
 
 .tableContainer table thead tr {
   background-color: #dcdcdc;

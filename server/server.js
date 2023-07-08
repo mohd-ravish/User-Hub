@@ -47,6 +47,18 @@ app.get("/get", async(req, res) => {
     res.send(data)
 })
 
+//Update
+app.put("/update", async(req, res)=>{
+    const { _id, ...data} = req.body
+    userModel.findByIdAndUpdate({_id : _id }, data)
+        .then(() => {
+            console.log("Data Updated!")
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
 // Delete
 app.delete("/delete/:id", async(req, res) => {
     const {id} = req.params
@@ -61,25 +73,3 @@ app.delete("/delete/:id", async(req, res) => {
 
 // Server
 app.listen(PORT, () => console.log(`SERVER IS RUNNING ON PORT ${PORT}`))
-
-//Update
-// module.exports.updateUsers = async(req, res) => {
-//     const {id} = req.params
-//     const {task} = req.body
-//     userModel.findByIdAndUpdate(id, {task})
-//     .then(() => {
-//         console.log("Updated Successfully!")
-//     })
-//     .catch((err) => {
-//         console.log(err)
-//     })
-// }
-
-//Update
-// app.put("/update", async(req, res)=>{
-//     console.log(req.body)
-//     const { id, ...rest} = req.body
-//     console.log(rest)
-//     const data = await userModel.updateOne({_id : id}, rest)
-//     res.send({success : true, message : "Data Updated Successfully", data : data})
-// })
