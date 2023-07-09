@@ -32,7 +32,7 @@ const userModel = mongoose.model("User", schemaData);
 
 // Create
 app.post("/save", async(req, res)=>{
-    userModel.create(req.body)
+    await userModel.create(req.body)
     .then((data) => {
         console.log("Data Submitted!")
     })
@@ -50,7 +50,7 @@ app.get("/get", async(req, res) => {
 //Update
 app.put("/update", async(req, res)=>{
     const { _id, ...data} = req.body
-    userModel.findByIdAndUpdate({_id : _id }, data)
+    await userModel.findByIdAndUpdate({_id : _id }, data)
         .then(() => {
             console.log("Data Updated!")
         })
@@ -62,7 +62,7 @@ app.put("/update", async(req, res)=>{
 // Delete
 app.delete("/delete/:id", async(req, res) => {
     const {id} = req.params
-    userModel.findByIdAndDelete(id)
+    await userModel.findByIdAndDelete(id)
     .then(() => {
         console.log("Data Deleted!")
     })
