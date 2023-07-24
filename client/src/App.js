@@ -51,7 +51,7 @@ function App() {
     })
   }
 
-  Axios.defaults.withCredentials = true;
+  // Axios.defaults.withCredentials = true;
 
   // Submit Data
   const handleSubmit = () => {

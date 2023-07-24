@@ -4,11 +4,11 @@ const mongoose = require("mongoose")
 const app = express()
 
 app.use(cors(
-    {
-    origin: ["https://user-hub-frontend.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    Credentials: true
-    }
+    // {
+    // origin: ["https://user-hub-frontend.vercel.app"],
+    // methods: ["POST", "GET", "PUT", "DELETE"],
+    // Credentials: true
+    // }
 ))
 app.use(express.json())
 
