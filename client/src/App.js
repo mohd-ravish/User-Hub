@@ -1,8 +1,8 @@
 import './App.css';
 import { useEffect, useState } from "react";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FiEdit3 } from "react-icons/fi";
-import { AiFillEye } from "react-icons/ai";
+// import { RiDeleteBin6Line } from "react-icons/ri";
+// import { FiEdit3 } from "react-icons/fi";
+// import { AiFillEye } from "react-icons/ai";
 
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
@@ -54,8 +54,8 @@ function App() {
   // Axios.defaults.withCredentials = true;
 
   // Submit Data
-  const handleSubmit = () => {
-    Axios.post("https://user-hub-alpha.vercel.app/save", formData)
+  const handleSubmit = async() => {
+    await Axios.post("https://user-hub-alpha.vercel.app/save", formData)
     // .then(fetchData())
     // .then(toast.success("Data Submitted!", {
     //   position: toast.POSITION.TOP_CENTER
@@ -66,9 +66,9 @@ function App() {
   }
 
   // Update Data
-  const handleUpdate = () => {
+  const handleUpdate = async() => {
     // e.preventDefault();
-    Axios.put("https://user-hub-alpha.vercel.app/update", editFormData)
+    await Axios.put("https://user-hub-alpha.vercel.app/update", editFormData)
     // .then(fetchData())
     // .then(toast.success("Data Updated!", {
     //   position: toast.POSITION.TOP_CENTER
@@ -88,8 +88,8 @@ function App() {
   }
 
   // Fetch Data from api
-  const fetchData = () => {
-    Axios.get("https://user-hub-alpha.vercel.app/get").then((res) => {
+  const fetchData = async() => {
+    await Axios.get("https://user-hub-alpha.vercel.app/get").then((res) => {
       setDataList(res.data)
     })
       .catch((err) => {
@@ -103,8 +103,8 @@ function App() {
   }, []);
 
   // Delete Data
-  const handleDelete = (id) => {
-    Axios.delete("https://user-hub-alpha.vercel.app/delete/" + id)
+  const handleDelete = async(id) => {
+    await Axios.delete("https://user-hub-alpha.vercel.app/delete/" + id)
     // .then(fetchData())
     // .then(toast.success("Data Deleted!", {
     //   position: toast.POSITION.TOP_CENTER

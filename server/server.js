@@ -3,13 +3,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const app = express()
 
-app.use(cors(
-    // {
-    // origin: ["https://user-hub-frontend.vercel.app"],
-    // methods: ["POST", "GET", "PUT", "DELETE"],
-    // Credentials: true
-    // }
-))
+app.use(cors())
 app.use(express.json())
 
 require("dotenv").config()
@@ -25,9 +19,7 @@ const DB = "mongodb+srv://mohdravish:ravishjmi@cluster0.bwjwxak.mongodb.net/user
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
-    // useCreateIndex: true,
     useUnifiedTopology: true,
-    // useFindAndModify: false
 })
 .then(()=>{
     console.log("MongoDB Connected")
