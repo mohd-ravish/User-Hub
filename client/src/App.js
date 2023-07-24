@@ -53,7 +53,7 @@ function App() {
 
   // Submit Data
   const handleSubmit = () => {
-    Axios.post("http://localhost:4500/save", formData)
+    Axios.post("https://user-hub-alpha.vercel.app/save", formData)
     // .then(fetchData())
     // .then(toast.success("Data Submitted!", {
     //   position: toast.POSITION.TOP_CENTER
@@ -66,7 +66,7 @@ function App() {
   // Update Data
   const handleUpdate = () => {
     // e.preventDefault();
-    Axios.put("http://localhost:4500/update", editFormData)
+    Axios.put("https://user-hub-alpha.vercel.app/update", editFormData)
     // .then(fetchData())
     // .then(toast.success("Data Updated!", {
     //   position: toast.POSITION.TOP_CENTER
@@ -87,7 +87,7 @@ function App() {
 
   // Fetch Data from api
   const fetchData = () => {
-    Axios.get("http://localhost:4500/get").then((res) => {
+    Axios.get("https://user-hub-alpha.vercel.app/get").then((res) => {
       setDataList(res.data)
     })
       .catch((err) => {
@@ -102,7 +102,7 @@ function App() {
 
   // Delete Data
   const handleDelete = (id) => {
-    Axios.delete("http://localhost:4500/delete/" + id)
+    Axios.delete("https://user-hub-alpha.vercel.app/delete/" + id)
     // .then(fetchData())
     // .then(toast.success("Data Deleted!", {
     //   position: toast.POSITION.TOP_CENTER
