@@ -1,10 +1,10 @@
 # User-Hub
 
-![Screenshot (254)](https://github.com/mohd-ravish/User-Hub/assets/102902397/423b832e-803d-4c13-9506-da139dfd078a)
+![Screenshot (274)](https://github.com/mohd-ravish/User-Hub/assets/102902397/10f39537-1f55-4be3-aad1-6a2dbbbb7e7d)
 
-![Screenshot (258)](https://github.com/mohd-ravish/User-Hub/assets/102902397/79b68f7e-8703-4828-a78f-ebac4f2b28d5)
+![Screenshot (276)](https://github.com/mohd-ravish/User-Hub/assets/102902397/2ec199bf-3128-4158-902a-033902971189)
 
-![Screenshot (256)](https://github.com/mohd-ravish/User-Hub/assets/102902397/0d8a1502-89c0-4074-9775-54a959579b15)
+![Screenshot (275)](https://github.com/mohd-ravish/User-Hub/assets/102902397/05dee3ee-aca9-43ca-8cb5-f790f8f0b712)
 
 Built using:
 
@@ -12,6 +12,7 @@ Built using:
 - Back-End : NodeJs, ExpressJs, MongoDB
   
 In the /User-Hub/client, run:
+### `npm install`
 ### `npm start`
 
 In the /User-Hub/server, run:
