@@ -51,6 +51,8 @@ function App() {
     })
   }
 
+  Axios.defaults.withCredentials = true;
+
   // Submit Data
   const handleSubmit = () => {
     Axios.post("https://user-hub-alpha.vercel.app/save", formData)
