@@ -111,77 +111,79 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div>
       <header>
-        <img src="Assets/logo.png" alt="logo"></img>
-        <h1>User Hub 
-        <button className='addButton' onClick={() => setAddSection(true)}>ADD USER</button> </h1>
+        {/* <img src="Assets/logo.png" alt="logo"></img> */}
+        <h2>User Hub</h2>
+        <button className='add-button' onClick={() => setAddSection(true)}>ADD USER</button>
       </header>
-      {/* <ToastContainer /> */}
-      {addSection && (
-        <AddUser
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          handleClose={() => setAddSection(false)}
-        />
-      )}
-      {editSection && (
-        <UpdateUser
-          handleUpdate={handleUpdate}
-          handleChange={handleEditChange}
-          handleClose={() => setEditSection(false)}
-          data={editFormData}
-        />
-      )}
-      {viewSection && (
-        <ViewUser
-          // handleUpdate={handleUpdate}
-          // handleChange={handleEditChange}
-          handleClose={() => setViewSection(false)}
-          data={editFormData}
-        />
-      )}
-      <div className='tableContainer'>
-        <table>
-          <thead>
-            <tr>
-              {/* <th>ID</th> */}
-              <th>Name</th>
-              <th>Email</th>
-              <th>Mobile</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dataList[0] ? (
-              dataList.map((dataItem) => {
-                return (
-                  <tr>
-                    {/* <td>{count}</td> */}
-                    <td>{dataItem.name}</td>
-                    <td>{dataItem.email}</td>
-                    <td>{dataItem.mobile}</td>
-                    <td>
-                    <button className='btn btn-edit'
-                        onClick={() => { view(dataItem) }}><AiFillEye /></button>
-                      <button className='btn btn-edit'
-                        onClick={() => { edit(dataItem) }}><FiEdit3 /></button>
-                      <button className='btn btn-delete'
-                        onClick={() => { handleDelete(dataItem._id) }}><RiDeleteBin6Line /></button>
-                    </td>
-                  </tr>
-                )
-              })
-            ) : (
-              <div className='no-data'>
-                <p>No Data Found!</p>
-              </div>
-            )}
-          </tbody>
-        </table>
-      </div>
+      <main className="table">
+
+        {/* <ToastContainer /> */}
+        {addSection && (
+          <AddUser
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            handleClose={() => setAddSection(false)}
+          />
+        )}
+        {editSection && (
+          <UpdateUser
+            handleUpdate={handleUpdate}
+            handleChange={handleEditChange}
+            handleClose={() => setEditSection(false)}
+            data={editFormData}
+          />
+        )}
+        {viewSection && (
+          <ViewUser
+            // handleUpdate={handleUpdate}
+            // handleChange={handleEditChange}
+            handleClose={() => setViewSection(false)}
+            data={editFormData}
+          />
+        )}
+        <section className='table-body'>
+          <table>
+            <thead>
+              <tr>
+                <th> ID <span></span></th>
+                <th> Name <span></span></th>
+                <th> Email <span></span></th>
+                <th> Mobile <span></span></th>
+                <th> Actions <span></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              {dataList[0] ? (
+                dataList.map((dataItem, index) => {
+                  return (
+                    <tr>
+                      <td>{index + 1}</td>
+                      <td>{dataItem.name}</td>
+                      <td>{dataItem.email}</td>
+                      <td>{dataItem.mobile}</td>
+                      <td>
+                        <button className='btn btn-edit'
+                          onClick={() => { view(dataItem) }}>VIEW</button>
+                        <button className='btn btn-edit'
+                          onClick={() => { edit(dataItem) }}>EDIT</button>
+                        <button className='btn btn-edit'
+                          onClick={() => { handleDelete(dataItem._id) }}>DELETE</button>
+                      </td>
+                    </tr>
+                  )
+                })
+              ) : (
+                <div className='no-data'>
+                  <p>No Data Found!</p>
+                </div>
+              )}
+            </tbody>
+          </table>
+        </section>
+      </main>
     </div>
   );
 }
-
-export default App; 
+export default App;

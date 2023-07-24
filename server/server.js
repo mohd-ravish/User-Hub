@@ -3,7 +3,13 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const app = express()
 
-app.use(cors())
+app.use(cors(
+    {
+    origin: [""],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    Credentials: true
+    }
+))
 app.use(express.json())
 
 require("dotenv").config()
@@ -12,7 +18,17 @@ require("dotenv").config()
 const PORT = process.env.PORT | 4500
 
 // Connection
-mongoose.connect("mongodb://127.0.0.1:27017/usermanagement")
+// For MongoCompass : mongodb://127.0.0.1:27017/usermanagement
+// For MongoAtlas : mongodb+srv://<username>:<password>@cluster0.bwjwxak.mongodb.net/<databasename>?retryWrites=true&w=majority
+
+const DB = "mongodb+srv://mohdravish:ravishjmi@cluster0.bwjwxak.mongodb.net/usermanagement?retryWrites=true&w=majority";
+
+mongoose.connect(DB, {
+    useNewUrlParser: true,
+    // useCreateIndex: true,
+    useUnifiedTopology: true,
+    // useFindAndModify: false
+})
 .then(()=>{
     console.log("MongoDB Connected")
 })
