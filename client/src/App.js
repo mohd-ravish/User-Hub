@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 // import { RiDeleteBin6Line } from "react-icons/ri";
 // import { FiEdit3 } from "react-icons/fi";
 // import { AiFillEye } from "react-icons/ai";
-
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Axios from "axios";
 import AddUser from "./components/AddUser.js"
 import UpdateUser from "./components/UpdateUser.js"
@@ -13,7 +12,6 @@ import ViewUser from "./components/ViewUser.js"
 
 function App() {
 
-  // const [count, setCount] = useState(0);
   const [addSection, setAddSection] = useState(false)
   const [editSection, setEditSection] = useState(false)
   const [viewSection, setViewSection] = useState(false)
@@ -51,44 +49,8 @@ function App() {
     })
   }
 
-  // Axios.defaults.withCredentials = true;
-
-  // Submit Data
-  const handleSubmit = async() => {
-    await Axios.post("https://user-hub-alpha.vercel.app/save", formData)
-    // .then(fetchData())
-    // .then(toast.success("Data Submitted!", {
-    //   position: toast.POSITION.TOP_CENTER
-    // }))
-    // setCount(count + 1);
-    setAddSection(false)
-    window.location.reload();
-  }
-
-  // Update Data
-  const handleUpdate = async() => {
-    // e.preventDefault();
-    await Axios.put("https://user-hub-alpha.vercel.app/update", editFormData)
-    // .then(fetchData())
-    // .then(toast.success("Data Updated!", {
-    //   position: toast.POSITION.TOP_CENTER
-    // }))
-    setEditSection(false)
-    window.location.reload();
-  }
-
-  const edit = (dataItem) => {
-    setEditFormData(dataItem)
-    setEditSection(true)
-  }
-
-  const view = (dataItem) => {
-    setEditFormData(dataItem)
-    setViewSection(true)
-  }
-
   // Fetch Data from api
-  const fetchData = async() => {
+  const fetchData = async () => {
     await Axios.get("https://user-hub-alpha.vercel.app/get").then((res) => {
       setDataList(res.data)
     })
@@ -102,26 +64,56 @@ function App() {
     fetchData()
   }, []);
 
+  // Submit Data
+  const handleSubmit = async () => {
+    await Axios.post("https://user-hub-alpha.vercel.app/save", formData)
+      .then(fetchData())
+      .then(toast.success("Data Submitted!", {
+        position: toast.POSITION.TOP_CENTER
+      }))
+      .then(setAddSection(false))
+      // .then(window.location.reload());
+  }
+
+  // Update Data
+  const handleUpdate = async () => {
+    // e.preventDefault();
+    await Axios.put("https://user-hub-alpha.vercel.app/update", editFormData)
+      .then(fetchData())
+      .then(toast.success("Data Updated!", {
+        position: toast.POSITION.TOP_CENTER
+      }))
+      .then(setEditSection(false))
+  }
+
+  const edit = (dataItem) => {
+    setEditFormData(dataItem)
+    setEditSection(true)
+  }
+
+  const view = (dataItem) => {
+    setEditFormData(dataItem)
+    setViewSection(true)
+  }
+
   // Delete Data
-  const handleDelete = async(id) => {
+  const handleDelete = async (id) => {
     await Axios.delete("https://user-hub-alpha.vercel.app/delete/" + id)
-    // .then(fetchData())
-    // .then(toast.success("Data Deleted!", {
-    //   position: toast.POSITION.TOP_CENTER
-    // }))
-    window.location.reload();
+      .then(fetchData())
+      .then(toast.success("Data Deleted!", {
+        position: toast.POSITION.TOP_CENTER
+      }))
   }
 
   return (
     <div>
       <header>
-        {/* <img src="Assets/logo.png" alt="logo"></img> */}
         <h2>User Hub</h2>
         <button className='add-button' onClick={() => setAddSection(true)}>ADD USER</button>
       </header>
       <main className="table">
 
-        {/* <ToastContainer /> */}
+        <ToastContainer />
         {addSection && (
           <AddUser
             handleSubmit={handleSubmit}
