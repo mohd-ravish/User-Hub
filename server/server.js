@@ -15,7 +15,7 @@ const PORT = process.env.PORT | 4500
 // For MongoCompass : mongodb://127.0.0.1:27017/usermanagement
 // For MongoAtlas : mongodb+srv://<username>:<password>@cluster0.bwjwxak.mongodb.net/<databasename>?retryWrites=true&w=majority
 
-const DB = "mongodb+srv://mohdravish:ravishjmi@cluster0.bwjwxak.mongodb.net/usermanagement?retryWrites=true&w=majority";
+const DB = process.env.MONGODB_URI;
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
