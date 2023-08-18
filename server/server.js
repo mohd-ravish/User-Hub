@@ -78,6 +78,5 @@ app.delete("/delete/:id", async(req, res) => {
         console.log(err)
     })
 })
-
 // Server
 app.listen(PORT, () => console.log(`SERVER IS RUNNING ON PORT ${PORT}`))
